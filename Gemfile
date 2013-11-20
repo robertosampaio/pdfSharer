@@ -28,6 +28,7 @@ gem "better_errors"
 gem "cancan"
 gem "simple_form"
 gem "pry"
+gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
