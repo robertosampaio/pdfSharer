@@ -4,6 +4,10 @@ PdfSharer::Application.routes.draw do
 
   root to: "custom_pages#index"
 
+  resources :relatorios do
+
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
