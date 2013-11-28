@@ -1,1 +1,25 @@
 <p>Eu to aqui!</p>
+
+<% @relatorios.each_with_index do |relatorio,i| %>
+  <a id="relatorio<%= i %>" href="#">teste</a>
+<% end %>
+
+<%= render 'form' %>
+
+<div id="pdfRenderer" style="width: 800px"></div>
+
+<script type="text/javascript">
+  <% @relatorios.each_with_index do |relatorio,i| %>
+    $("#relatorio<%= i %>").click(function(){
+      
+      var pdf = new PDFObject({
+        url: "<%= relatorio.arquivo %>",
+        id: "pdfRenderer",
+        pdfOpenParams: {
+          view: "FitH"
+        }
+      }).embed("pdfRenderer");
+
+    });
+  <% end %>
+</script>
