@@ -1,0 +1,10 @@
+<%= simple_form_for @relatorio, :html => { :multipart => true } do |f| %>
+  <div>
+    <%= f.label :arquivo, "Arquivo pdf" %>
+    <%= f.file_field :arquivo %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+  </div>
+  <div id="actions">
+    <%= f.submit "Submit" %>
+  </div>
+<% end %>
