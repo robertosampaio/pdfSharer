@@ -2,7 +2,9 @@ class Relatorio < ActiveRecord::Base
   attr_accessible :arquivo, :user_id
   has_attached_file :arquivo, styles: {thumb: '100x100#'},
     url: "/assets/relatorios/:id/:style/:basename.:extension",
-    path: ":rails_root/public/assets/relatorios/:id/:style/:basename.:extension"
+    path: ":rails_root/public/assets/relatorios/:id/:style/:basename.:extension",
+    :styles => {
+    :pdf_thumbnail => ["100x100", :jpg]}
 
   validates_attachment_presence :arquivo
   validates_attachment_size :arquivo, less_than: 20.megabytes

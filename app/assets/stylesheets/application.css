@@ -14,12 +14,13 @@
 */
 
 .row {
-    width: 1000px;
+    width: 1200px;
+    margin: 0 auto;
 }
 
 #menu {
     float: left;
-    width: 150px;
+    width: 300px;
 }
 
 #objecttag {

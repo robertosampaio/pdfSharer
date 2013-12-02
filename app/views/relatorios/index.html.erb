@@ -1,9 +1,10 @@
 <div id="menu">
-  <p>Eu to aqui!</p>
 
-  <% @relatorios.each_with_index do |relatorio,i| %>
-    <a id="relatorio<%= i %>" href="#"><%= relatorio.arquivo.original_filename %> - <iframe src="<%=  relatorio.arquivo.url(:thumb) %>"></iframe></a>
-  <% end %>
+<% @relatorios.each_with_index do |relatorio, i| %>
+  <a id="relatorio<%= i %>" href="#">
+    <%= relatorio.arquivo.original_filename %> <%= image_tag relatorio.arquivo.url(:pdf_thumbnail) %>
+  </a>
+<% end %>
 
   <%= render 'form' %>
 
@@ -15,14 +16,11 @@
         download the PDF file.</a></p>
   </iframe>
 
-
 <script type="text/javascript">
 <% @relatorios.each_with_index do |relatorio,i| %>
     $("#relatorio<%= i %>").click(function(){
-      
       var object = document.getElementById("objecttag");
-      object.setAttribute("src", <%= relatorio.arquivo.url %>);
-
+      object.setAttribute("src", "<%= relatorio.arquivo.url %>");
     });
 <% end %>
 </script>
