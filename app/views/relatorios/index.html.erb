@@ -1,25 +1,28 @@
-<p>Eu to aqui!</p>
+<div id="menu">
+  <p>Eu to aqui!</p>
 
-<% @relatorios.each_with_index do |relatorio,i| %>
-  <a id="relatorio<%= i %>" href="#">teste</a>
-<% end %>
+  <% @relatorios.each_with_index do |relatorio,i| %>
+    <a id="relatorio<%= i %>" href="#"><%= relatorio.arquivo.original_filename %> - <iframe src="<%=  relatorio.arquivo.url(:thumb) %>"></iframe></a>
+  <% end %>
 
-<%= render 'form' %>
+  <%= render 'form' %>
 
-<div id="pdfRenderer" style="width: 800px"></div>
+</div>
+
+  <iframe id="objecttag" type="application/pdf">
+    <p>It appears you don't have a PDF plugin for this browser.
+      No biggie... you can <a href="myfile.pdf">click here to
+        download the PDF file.</a></p>
+  </iframe>
+
 
 <script type="text/javascript">
-  <% @relatorios.each_with_index do |relatorio,i| %>
+<% @relatorios.each_with_index do |relatorio,i| %>
     $("#relatorio<%= i %>").click(function(){
       
-      var pdf = new PDFObject({
-        url: "<%= relatorio.arquivo %>",
-        id: "pdfRenderer",
-        pdfOpenParams: {
-          view: "FitH"
-        }
-      }).embed("pdfRenderer");
+      var object = document.getElementById("objecttag");
+      object.setAttribute("src", <%= relatorio.arquivo.url %>);
 
     });
-  <% end %>
+<% end %>
 </script>

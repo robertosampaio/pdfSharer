@@ -1,6 +1,6 @@
 class Relatorio < ActiveRecord::Base
   attr_accessible :arquivo, :user_id
-  has_attached_file :arquivo,
+  has_attached_file :arquivo, styles: {thumb: '100x100#'},
     url: "/assets/relatorios/:id/:style/:basename.:extension",
     path: ":rails_root/public/assets/relatorios/:id/:style/:basename.:extension"
 

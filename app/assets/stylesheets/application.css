@@ -12,3 +12,18 @@
  *= require_tree .
  *= require bootstrap_and_overrides
 */
+
+.row {
+    width: 1000px;
+}
+
+#menu {
+    float: left;
+    width: 150px;
+}
+
+#objecttag {
+    float: right;
+    width: 700px;
+    height: 500px;
+}
