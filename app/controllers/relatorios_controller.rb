@@ -2,8 +2,7 @@
 
 class RelatoriosController < ApplicationController
   def index
-    user = User.find(current_user.id)
-    @relatorios = user.relatorios
+    @relatorios = Relatorio.search(params[:search],current_user.id)
     @relatorio = Relatorio.new
   end
 

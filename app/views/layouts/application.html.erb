@@ -58,8 +58,13 @@
           <a class="brand" href="#">PdfSharer</a>
           <div class="container nav-collapse">
             <ul class="nav">
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
+              <li><%= link_to "Meus relatórios", relatorios_path  %></li>
+              <li>
+                <%= form_tag relatorios_path, method: 'get' do %>
+                  <%= text_field_tag :search, params[:search], class: "navbar-search" %>&nbsp;
+                  <%= submit_tag "Buscar", class: "btn btn-primary", name: nil %>
+                <% end %>
+              </li>
               <li><%= link_to "Link3", "/path3"  %></li>
             </ul>
           </div><!--/.nav-collapse -->
