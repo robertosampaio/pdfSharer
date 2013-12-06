@@ -16,7 +16,7 @@ class Relatorio < ActiveRecord::Base
 
   def self.search(search,user_id)
     if search
-      find(:all, conditions: ['arquivo LIKE ?', "%#{search}%"])
+      find(:all, conditions: ['arquivo_file_name LIKE ?', "%#{search}%"])
     else
       por_usuario(user_id)
     end
