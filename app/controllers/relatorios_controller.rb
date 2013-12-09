@@ -1,6 +1,9 @@
 #encoding: utf-8
 
 class RelatoriosController < ApplicationController
+
+  before_filter :authenticate_user!
+
   def index
     @relatorios = Relatorio.search(params[:search],current_user.id)
     @relatorio = Relatorio.new

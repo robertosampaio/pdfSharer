@@ -1,20 +1,25 @@
-<div id="menu">
+<div class="conteudo">
+  <div id="menu">
 
-<% @relatorios.each_with_index do |relatorio, i| %>
-  <a id="relatorio<%= i %>" href="#">
-    <%= relatorio.arquivo.original_filename %> <%= image_tag relatorio.arquivo.url(:pdf_thumbnail) %>
-  </a>
-<% end %>
+  <% @relatorios.each_with_index do |relatorio, i| %>
+    <p>
+      <a id="relatorio<%= i %>" href="#">
+        <%= relatorio.arquivo.original_filename %> <%= image_tag relatorio.arquivo.url(:pdf_thumbnail) %>
+      </a>
+    </p>
+    <hr/>
+  <% end %>
 
-  <%= render 'form' %>
+    <%= render 'form' %>
 
-</div>
+  </div>
 
   <iframe id="objecttag" type="application/pdf">
     <p>It appears you don't have a PDF plugin for this browser.
       No biggie... you can <a href="myfile.pdf">click here to
         download the PDF file.</a></p>
   </iframe>
+</div>
 
 <script type="text/javascript">
 <% @relatorios.each_with_index do |relatorio,i| %>

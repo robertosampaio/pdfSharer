@@ -151,6 +151,7 @@ PLATFORMS
 DEPENDENCIES
   better_errors
   cancan
+  cocaine
   coffee-rails (~> 3.2.1)
   devise
   jquery-rails
