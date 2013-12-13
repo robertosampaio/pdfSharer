@@ -1,0 +1,8 @@
+production:
+  adapter: postgresql
+  database: production_postgresql
+  encoding: unicode
+  pool: 5
+  timeout: 5000
+  username: user
+  password: itsjustatest
